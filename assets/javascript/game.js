@@ -5,10 +5,10 @@ console.log (wordArray);
 console.log(randWord);
 
 
-var count = 0;
+var count = 16;
 var answerArray = []; //array to hold underscores and then answer
 var wrongWord = [];
-var rightWord = [];
+
 
 
 
@@ -19,13 +19,16 @@ document.addEventListener('keypress', (event) => {
     console.log(input);
     
     if (input != null) {
-        count++;
-        if (count > 14) {
-            alert("Game Over!");
-            count = 0;
-            document.onload = Game();
+        count--;
+        if (count < 1) {
+            count = 15;
+            document.reload = Game();
         }
         console.log(count);
+    }
+
+    if (count < 1) {
+        alert("Game Over!");
     }
 
     
@@ -34,7 +37,9 @@ document.addEventListener('keypress', (event) => {
 
     for (var i = 0; i < randWord.length; i ++) { //loop to generate underscores based on word length
         answerArray[i] = "_";
-        break;
+        if (answerArray.length = randWord.length) {
+            break;
+        }
         }
  
 
@@ -56,7 +61,8 @@ document.addEventListener('keypress', (event) => {
         
     }
 
-    //if (randWord.length === rightWord.length) {    }
+    
+
 
     
 
@@ -65,7 +71,7 @@ document.addEventListener('keypress', (event) => {
 
         
         
-        console.log(rightWord);
+        
         console.log(answerArray);
         
         console.log(wrongWord);
@@ -77,14 +83,10 @@ document.addEventListener('keypress', (event) => {
          document.getElementById("word").innerHTML = answerArray;
          document.getElementById("counter").innerHTML = count;
          document.getElementById("letters").innerHTML = wrongWord;
-         document.getElementById("correct").innerHTML = rightWord;
+         
     });
 }
-    /*function newWord() {
-        var randWord = wordArray[Math.floor(Math.random() * wordArray.length)];
-        count = 0;
-        }
-      */      
+    
 
         
             
