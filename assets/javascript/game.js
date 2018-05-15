@@ -41,10 +41,10 @@ function Game() {
         if (count === 0) {
             losses++;
             count = 15;
-            var answerArray = []; 
-            var rightWord = [];
-            var wrongWord = [];
-            var randWord = wordArray[Math.floor(Math.random() * wordArray.length)];
+            answerArray = []; 
+            rightWord = [];
+            wrongWord = [];
+            randWord = wordArray[Math.floor(Math.random() * wordArray.length)];
             for (var i = 0; i < randWord.length; i++) {
                 answerArray.push("_");
             }
@@ -61,10 +61,10 @@ function Game() {
         if (randWord === answerArray.join("")) {
             wins++;
             count = 15;
-            var answerArray = []; 
-            var rightWord = [];
-            var wrongWord = [];
-            var randWord = wordArray[Math.floor(Math.random() * wordArray.length)];
+            answerArray = []; 
+            rightWord = [];
+            wrongWord = [];
+            randWord = wordArray[Math.floor(Math.random() * wordArray.length)];
             for (var i = 0; i < randWord.length; i++) {
                 answerArray.push("_");
             }
