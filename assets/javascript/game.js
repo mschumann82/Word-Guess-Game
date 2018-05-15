@@ -38,31 +38,48 @@ function Game() {
             
         }
 
+        if (count === 0) {
+            losses++;
+            count = 15;
+            var answerArray = []; 
+            var rightWord = [];
+            var wrongWord = [];
+            var randWord = wordArray[Math.floor(Math.random() * wordArray.length)];
+            for (var i = 0; i < randWord.length; i++) {
+                answerArray.push("_");
+            }
+            
+        }
+
         console.log(count);
         console.log(rightWord);
         console.log(wrongWord);
    
     
-        if (count === 0) {
-            losses++;
-            
-        }
+        
         
         if (randWord === answerArray.join("")) {
             wins++;
+            count = 15;
+            var answerArray = []; 
+            var rightWord = [];
+            var wrongWord = [];
+            var randWord = wordArray[Math.floor(Math.random() * wordArray.length)];
+            for (var i = 0; i < randWord.length; i++) {
+                answerArray.push("_");
+            }
             
         }
 
         for (var k = 0; k <randWord.length; k++) {
             if (randWord[k] != input) {
                 wrongWord.push(input);
+                count--;
                 break;
             }
             
-            
-            
         }
-  
+
              document.getElementById("word").innerHTML = answerArray;
              document.getElementById("counter").innerHTML = count;
              document.getElementById("letters").innerHTML = wrongWord;
