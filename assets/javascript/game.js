@@ -4,10 +4,11 @@ var count = 15;
 
 
 var wordArray = ["bear", "beets", "dwight"]; 
+var randWord = wordArray[Math.floor(Math.random() * wordArray.length)];
 
 function Game() {
 
-    var randWord = wordArray[Math.floor(Math.random() * wordArray.length)]; //var that will randomly call words
+     //var that will randomly call words
     console.log (wordArray);
     console.log(randWord);
     
@@ -29,9 +30,9 @@ function Game() {
         console.log(answerArray);
 
     
-        for (var j = 0; j < randWord.length; j++) {
-            if (randWord[j] === input) {
-                answerArray[j] = input;
+    for (var j = 0; j < randWord.length; j++) {
+        if (randWord[j] === input) {
+            answerArray[j] = input;
                 
             }
             
@@ -42,16 +43,11 @@ function Game() {
         console.log(wrongWord);
    
     
-
-    
         if (count === 0) {
             losses++;
             
         }
         
- 
-
-    
         if (randWord === answerArray.join("")) {
             wins++;
             
@@ -59,19 +55,14 @@ function Game() {
 
         for (var k = 0; k <randWord.length; k++) {
             if (randWord[k] != input) {
+                wrongWord.push(input);
                 break;
-                
             }
-            rightWord.push(input);
-            break;
+            
+            
             
         }
   
-            
-            
-            
-            
-        
              document.getElementById("word").innerHTML = answerArray;
              document.getElementById("counter").innerHTML = count;
              document.getElementById("letters").innerHTML = wrongWord;
