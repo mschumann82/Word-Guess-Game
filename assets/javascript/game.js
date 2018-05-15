@@ -1,103 +1,154 @@
+var wins = 0;
+var losses = 0;
+var count = 15;
+
+
+var wordArray = ["bear", "beets", "dwight"]; 
+
 function Game() {
-var wordArray = ["bear", "beets", "dwight"]; //array containing words
-var randWord = wordArray[Math.floor(Math.random() * wordArray.length)]; //var that will randomly call words
-console.log (wordArray);
-console.log(randWord);
 
+    var randWord = wordArray[Math.floor(Math.random() * wordArray.length)]; //var that will randomly call words
+    console.log (wordArray);
+    console.log(randWord);
+    
+   
+    var count = 15;
+    var answerArray = []; //array to hold underscores and then answer
+    var rightWord = [];
+    var wrongWord = [];
 
-var count = 16;
-var answerArray = []; //array to hold underscores and then answer
-var wrongWord = [];
-
-
-
-
+    for (var i = 0; i < randWord.length; i++) {
+        answerArray.push("_");
+    }
+                   
+    document.addEventListener('keypress', (event) => {
+        
+        var input = String.fromCharCode(event.keyCode);
+        console.log(input);
            
-document.addEventListener('keypress', (event) => {
-   
-    var input = String.fromCharCode(event.keyCode);
-    console.log(input);
+        console.log(answerArray);
+
     
-    if (input != null) {
-        count--;
-        if (count < 1) {
-            count = 15;
-            document.reload = Game();
+        for (var j = 0; j < randWord.length; j++) {
+            if (randWord[j] === input) {
+                answerArray[j] = input;
+                
+            }
+            
         }
+
         console.log(count);
-    }
-
-    if (count < 1) {
-        alert("Game Over!");
-    }
+        console.log(rightWord);
+        console.log(wrongWord);
+   
+    
 
     
-   
-
-
-    for (var i = 0; i < randWord.length; i ++) { //loop to generate underscores based on word length
-        answerArray[i] = "_";
-        if (answerArray.length = randWord.length) {
-            break;
+        if (count === 0) {
+            losses++;
+            
         }
-        }
+        
  
 
-    for (var j = 0; j < randWord.length; j++) {
-        if (randWord[j] === input) {
-            answerArray[j] = input;
+    
+        if (randWord === answerArray.join("")) {
+            wins++;
+            
+        }
+
+        for (var k = 0; k <randWord.length; k++) {
+            if (randWord[k] != input) {
+                break;
+                
+            }
+            rightWord.push(input);
+            break;
+            
+        }
+  
+            
+            
+            
+            
+        
+             document.getElementById("word").innerHTML = answerArray;
+             document.getElementById("counter").innerHTML = count;
+             document.getElementById("letters").innerHTML = wrongWord;
+             document.getElementById("wins").innerHTML = wins;
+             document.getElementById("losses").innerHTML = losses;
+             document.getElementById("correct").innerHTML = rightWord;
+             
+        });
+    }
+        
+    
+
+
+            
+/*
+if (input != null) {
+            count--;
+            if (count < 1) {
+                count = 15;
+                document.reload = Game();
+            }
+            console.log(count);
+        }
+
+for (var i = 0; i < randWord.length; i ++) { //loop to generate underscores based on word length
+            answerArray[i] = "_";
+            if (answerArray.length = randWord.length) {
+                break;
+            }
+            }
+     
+    
+        for (var j = 0; j < randWord.length; j++) {
+            if (randWord[j] === input) {
+                answerArray[j] = input;
+                
+                }
+            
             
             }
         
-        
-        }
-    
-    for (var k = 0; k <randWord.length; k++) {
-        if (randWord[k] != input) {
-            wrongWord.push(input);
-            break;
+        for (var k = 0; k <randWord.length; k++) {
+            if (randWord[k] != input) {
+                wrongWord.push(input);
+                break;
+                
+            }
             
         }
+    
         
+    
+    
+        
+    
+            
+    
+    
+            
+            
+            
+            console.log(answerArray);
+            
+            console.log(wrongWord);
+            
+    
+            
+            
+        
+             document.getElementById("word").innerHTML = answerArray;
+             document.getElementById("counter").innerHTML = count;
+             document.getElementById("letters").innerHTML = wrongWord;
+             
+        });
     }
 
-    
 
 
     
-
-        
-
-
-        
-        
-        
-        console.log(answerArray);
-        
-        console.log(wrongWord);
-        
-
-        
-        
-    
-         document.getElementById("word").innerHTML = answerArray;
-         document.getElementById("counter").innerHTML = count;
-         document.getElementById("letters").innerHTML = wrongWord;
-         
-    });
-}
-    
-
-        
-            
-    
-    
-
-
-            
-
-
-
-
-    
-    
+    */

@@ -10,7 +10,7 @@
         <script src="assets/javascript/game.js"></script>
     </head>
 
-    <body onload="Game()">
+    <body onkeypress="Game()">
         <h1 class="header">Hangman</h1>
 
         <div class="outer">
@@ -19,7 +19,8 @@
 
             <div class="right"> <!--will use this div for game components-->
                 <h3 class="start">Press any key to get started!</h3>
-                <h3 class="wins">Wins #</h3>
+                <p id ="wins">Wins #</p>
+                <p id ="losses"></p>
                 <p id ="word"></p>
                 <p id ="correct"></p>
                 <!--code using javascript the word to be guessed-->
