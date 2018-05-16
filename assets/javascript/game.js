@@ -43,6 +43,10 @@ function Game() {
 
             }
 
+            if (randWord[j] === " ") {
+                answerArray[j] = " ";
+            }
+
         }
 
         if (count === 0) {
