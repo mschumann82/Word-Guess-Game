@@ -6,9 +6,6 @@ var rightWord = ""; // displays answer on win or loss condition
 var wrongWord = []; // array for holding guessed letters
 
 
-
-
-
 var wordArray = ["riddikulus", "obliviate", "sectumsempra", "avada kedavra", "alohomora", "lumos", "expelliarmus", "wingardium leviosa", "accio", "expecto patronum"];
 var randWord = wordArray[Math.floor(Math.random() * wordArray.length)];
 
@@ -56,7 +53,8 @@ function Game() {
             answerArray = [];
             wrongWord = [];
             randWord = wordArray[Math.floor(Math.random() * wordArray.length)];
-
+            
+            
             for (var i = 0; i < randWord.length; i++) {
                 answerArray.push("_");
             }
@@ -78,7 +76,8 @@ function Game() {
             answerArray = [];
             wrongWord = [];
             randWord = wordArray[Math.floor(Math.random() * wordArray.length)];
-
+            
+            
             for (var i = 0; i < randWord.length; i++) {
                 answerArray.push("_");
             }
@@ -89,6 +88,7 @@ function Game() {
         for (var k = 0; k < randWord.length; k++) {
             if (randWord[k] != input) {
                 wrongWord.push(input);
+                
                 count--;
                 break;
             }
@@ -99,10 +99,12 @@ function Game() {
 
         document.getElementById("word").innerHTML = answerArray.join(" ");
         document.getElementById("counter").innerHTML = count;
-        document.getElementById("letters").innerHTML = wrongWord;
+        document.getElementById("letters").innerHTML = wrongWord.join(" ");
         document.getElementById("wins").innerHTML = wins;
         document.getElementById("losses").innerHTML = losses;
         document.getElementById("correct").innerHTML = rightWord;
+        
+        
 
     });
 
